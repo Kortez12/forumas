@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/homesas', function () {
-    return view('sss');
+Route::get('/', function () {
+    return view('welcome');
 });
 Route::get('/index',[App\Http\Controllers\MainController::class, 'index']);
 
