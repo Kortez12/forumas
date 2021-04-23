@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
-@section('content')
 
+
+@section('content')
     <div class="container">
+    @include('inc.carousel')    
         <div class="jumbotron text-center">
             <h2 class="text-center">Sveiki atvykę į forumą</h2>
             <p class="text-center">Geriausiai praktikai rekomenduojame prisiregistruoti</p>

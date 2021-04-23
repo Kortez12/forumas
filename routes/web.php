@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/index',[App\Http\Controllers\MainController::class, 'index']);
+Route::get('/carousel', [App\Http\Controllers\CarouselController::class, 'carousel']);
 
 
 
