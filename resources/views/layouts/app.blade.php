@@ -14,18 +14,19 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     
 </head>
-<body>
+<body class="bg-foto">
     <div id="app">
         @include('inc.navbar')
-        <div class="container py-4">
-    @yield('content')
-    </div>
+       
+        @yield('content')
+     
 </div>
 
 

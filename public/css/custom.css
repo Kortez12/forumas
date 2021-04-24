@@ -38,3 +38,7 @@
     background-color: #261E95;
     border-color: #261E95;
   }
+
+  .bg-foto {
+    background-image: linear-gradient(#D2489E, #4236D8);
+  }
