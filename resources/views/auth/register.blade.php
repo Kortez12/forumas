@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-8 py-3">
             <div class="card">
-                <div class="card-header">{{ __('Registracija') }}</div>
+                <div class="card-header bg-grand text-white">Registracija</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -81,13 +81,17 @@
                         </div>
 
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                        <div class="form-group row mb-0 justify-content-center">
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-pink">
+                                    {{ __('Registruotis') }}
                                 </button>
-                            </div>
+                           
+                            <a class="btn btn-link pl-0" href="{{ url('/') }}">
+                                {{ __('Atgal') }}
+                            </a>
                         </div>
+                    </div>
                     </form>
                 </div>
             </div>
