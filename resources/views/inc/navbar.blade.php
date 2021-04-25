@@ -15,7 +15,7 @@
 
                 <ul class="navbar-nav mr-auto ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">Pagrindinis</a>
+                        <a class="nav-link " href="{{ url('/') }}">Pagrindinis</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/index') }}">Forumas</a>
@@ -34,13 +34,13 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Prisijungti') }}</a>
+                                <a class="nav-link btnc btn-blue text-white mb-1 mr-2" href="{{ route('login') }}">{{ __('Prisijungti') }}</a>
                             </li>
                         @endif
                         
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registruotis') }}</a>
+                                <a class="nav-link btnc btn-pink text-white" href="{{ route('register') }}">{{ __('Registruotis') }}</a>
                             </li>
                         @endif
                     @else

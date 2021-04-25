@@ -59,3 +59,11 @@
 .rounded-bot{
   border-radius: 0 0 1rem 1rem;
 }
+
+.boxas {
+  display: flex;
+}
+
+.boxas1 {
+  flex: 1;
+}
