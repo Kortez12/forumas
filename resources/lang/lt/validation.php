@@ -123,9 +123,17 @@ return [
     'url'                  => 'Negaliojantis lauko :attribute formatas.',
     'uuid'                 => 'Lauko :attribute reikšmė turi būti galiojantis UUID.',
     'custom'               => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'city_id' => [
+            'required' => 'Prašome pasirinkti miestą',
         ],
     ],
-    'attributes'           => [],
+    'attributes'           => [
+        'name'          =>  ' ',
+        'email'         =>  ' ',
+        'password'      =>  ' ',
+        //'city_id'       =>  '',
+
+    ],
+
+
 ];

@@ -14,8 +14,8 @@ class UpdateUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedInteger('country_id')->nullable();
-            $table->foreign('country_id')->references('id')->on('countries');
+            $table->unsignedInteger('city_id')->nullable();
+            $table->foreign('city_id')->references('id')->on('cities');
         });
     }
 
@@ -26,8 +26,6 @@ class UpdateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('country_id');
-        });
+        Schema::dropIfExists('users');
     }
 }

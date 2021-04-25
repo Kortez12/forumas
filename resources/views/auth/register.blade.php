@@ -19,7 +19,7 @@
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        {{ $message }}
                                     </span>
                                 @enderror
                             </div>
@@ -33,7 +33,7 @@
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        {{ $message }}
                                     </span>
                                 @enderror
                             </div>
@@ -47,7 +47,7 @@
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+                                        {{ $message }}
                                     </span>
                                 @enderror
                             </div>
@@ -65,16 +65,16 @@
 
                         <div class="form-group row justify-content-center">
                             <div class="col-md-6">
-                            <select class="custom-select{{ $errors->has('country_id') ? ' is-invalid' : '' }} " id="country_id" name="country_id">
-                                <option value="" selected>Pasirinkite šalį</option>
-                                @foreach($countries as $country)
-                                    <option value="{{ $country->id }}">{{ $country->name }}</option>
+                            <select class="custom-select{{ $errors->has('city_id') ? ' is-invalid' : '' }} " id="city_id" name="city_id">
+                                <option value="" selected>Pasirinkite miestą</option>
+                                @foreach($cities as $city)
+                                    <option value="{{ $city->id }}">{{ $city->name }}</option>
                                 @endforeach
                             </select>
                             
-                            @if($errors->has('country_id'))
+                            @if($errors->has('city_id'))
                                 <div class="invalid-feedback">
-                                    {{ $errors->first('country_id') }}
+                                    {{ $errors->first('city_id') }}
                                 </div>
                             @endif
                             </div>

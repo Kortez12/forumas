@@ -16,11 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/index',[App\Http\Controllers\MainController::class, 'index']);
+Route::get('/index', [App\Http\Controllers\CitiesController::class, 'index']);
 Route::get('/carousel', [App\Http\Controllers\CarouselController::class, 'carousel']);
 
 
+Route::get('/email/verify', function () {
+    return view('auth.verify');
+})->middleware('auth')->name('verification.name');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');

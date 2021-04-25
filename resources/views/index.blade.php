@@ -2,9 +2,9 @@
 
 @section('content')
 <body class="antialiased">
-    <ul class="list-group-item">
-        @foreach($countries as $country)
-            <li>{{ $country->id }} {{ $country->name }} </li>
+    <ul class="list-group-horizontal">
+        @foreach($cities as $city)
+            <li class="list-group-item">{{ $city->id }} {{ $city->name }} </li>
         @endforeach
     </ul>
 </body>
