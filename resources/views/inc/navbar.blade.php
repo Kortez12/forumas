@@ -18,7 +18,7 @@
                         <a class="nav-link " href="{{ url('/') }}">Pagrindinis</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/index') }}">Forumas</a>
+                        <a class="nav-link" href="{{ url('/miestai') }}">Miestai</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/apie') }}">Apie</a>

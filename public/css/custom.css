@@ -42,6 +42,9 @@
 .bg-grand {
   background-image: linear-gradient(to left, #D2489E, #4236D8);
 }
+.bg-grand-nav {
+  background-image: linear-gradient(to left, #D2489E, #4236D8);
+}
 
 .rounded-1rem {
       border-radius: 1rem !important;
@@ -66,4 +69,17 @@
 
 .boxas1 {
   flex: 1;
+}
+
+.vl {
+  border-left: 1px solid rebeccapurple;
+  display: flex;
+  position: relative;
+  left: 30%;
+
+}
+
+.flexas {
+  display: flex;
+  position: relative;
 }

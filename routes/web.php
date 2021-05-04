@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AutomobiliaiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
-Route::get('/index', [App\Http\Controllers\CitiesController::class, 'index']);
+Route::get('/miestai', [App\Http\Controllers\CitiesController::class, 'index']);
 Route::get('/carousel', [App\Http\Controllers\CarouselController::class, 'carousel']);
 
+Route::resources(['automobiliai' => AutomobiliaiController::class]);
 
 Route::get('/email/verify', function () {
     return view('auth.verify');

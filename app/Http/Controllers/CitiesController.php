@@ -12,6 +12,6 @@ class CitiesController extends Controller
     {
         $cities = City::all();
         //$countries = Country::orderBy('created_at', 'asc')->paginate(10);
-        return view('index')->with('cities', $cities);
+        return view('miestai')->with('cities', $cities);
     }
 }
