@@ -16,9 +16,9 @@ class CreateAutomobiliaiTable extends Migration
         Schema::create('automobiliai', function (Blueprint $table) {
             $table->id();
             $table->string('pavadinimas');
-            $table->string('tekstas');
-            $table->string('nuotrauka');
-            $table->integer('user_id');
+            $table->longText('tekstas');
+            $table->string('nuotrauka')->nullable();
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }

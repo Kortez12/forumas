@@ -15,6 +15,10 @@ class CreateKnygosTable extends Migration
     {
         Schema::create('knygos', function (Blueprint $table) {
             $table->id();
+            $table->string('pavadinimas');
+            $table->longText('tekstas');
+            $table->string('nuotrauka')->nullable();
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }

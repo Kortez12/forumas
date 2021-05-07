@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AutomobiliaiController;
+use App\Http\Controllers\KnygosController;
+use App\Http\Controllers\LaisvalaikisController;
+use App\Http\Controllers\MuzikaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +24,9 @@ Route::get('/miestai', [App\Http\Controllers\CitiesController::class, 'index']);
 Route::get('/carousel', [App\Http\Controllers\CarouselController::class, 'carousel']);
 
 Route::resources(['automobiliai' => AutomobiliaiController::class]);
+Route::resources(['knygos' => KnygosController::class]);
+Route::resources(['laisvalaikis' => LaisvalaikisController::class]);
+Route::resources(['muzika' => MuzikaController::class]);
 
 Route::get('/email/verify', function () {
     return view('auth.verify');

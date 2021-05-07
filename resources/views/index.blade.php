@@ -16,23 +16,17 @@
                 <div><p class="p-0 m-0">Viskas apie automobilius</p></div>
             </li>
             <li class="list-group-item mt-2 rounded-1rem">
-                <h4>Knygos</h4>
-                <div><a href="{{ url('/') }}">Laikas</a><br>
-                        <small>Something And data 2021-04-24</small>
-                    </div>
-                                    </li>
-                                    <li class="list-group-item mt-2 rounded-1rem">
-                                        <h4>Muzika<span class="badge btn-blue ml-2">Nauja!</span></h4>
-                                    <div><a href="{{ url('/') }}">Laikas</a><br>
-                                <small>Something And data 2021-04-24</small>
-                            </div>
-                            </li>
-                <li class="list-group-item mt-2 rounded-1rem">
-                    <h4>Laisvalaikis</h4>
-                    <div><a href="{{ url('/') }}">Laikas</a><br>
-                        <small>Something And data 2021-04-24</small>
-                    </div>
-                </li>
+                <h4><a href="{{ url('/knygos') }}">Knygos</a></h4>
+                <div><p class="p-0 m-0">Viskas apie automobilius</p></div>
+            </li>
+            <li class="list-group-item mt-2 rounded-1rem">
+                <h4><a href="{{ url('/laisvalaikis') }}">Laisvalaikis</a></h4>
+                <div><p class="p-0 m-0">Viskas apie automobilius</p></div>
+            </li>
+            <li class="list-group-item mt-2 rounded-1rem">
+                <h4><a href="{{ url('/muzika') }}">Muzika</a></h4>
+                <div><p class="p-0 m-0">Viskas apie automobilius</p></div>
+            </li>
         </ul>
         </div>
     </div>

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Auto;
+use App\Models\Knygos;
 use Illuminate\Http\Request;
 
-class AutomobiliaiController extends Controller
+class KnygosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,13 @@ class AutomobiliaiController extends Controller
      */
     public function index()
     {
-        $automobiliai = Auto::all();
+        $knygos = knygos::all();
         //$return Post::where('title', 'Post Two')->get();
         //$posts = Post::orderBy('title', 'desc')->take(1)->get();
         //$posts = Post::orderBy('title', 'desc')->get();
 
         //$posts = Auto::orderBy('created_at', 'asc')->paginate(10);
-        return view('temos.automobiliai.index')->with('automobiliai', $automobiliai);
+        return view('temos.knygos.index')->with('knygos', $knygos);
 
         //  $posts = DB::select('select * from posts');
     }
@@ -32,8 +32,8 @@ class AutomobiliaiController extends Controller
      */
     public function create()
     {
-        return view('temos.automobiliai.pcreate');
-        //return redirect()->action([AutomobiliaiController::class, 'index']);
+        return view('temos.knygos.pcreate');
+        //return redirect()->action([knygosController::class, 'index']);
     }
 
     /**
@@ -50,12 +50,12 @@ class AutomobiliaiController extends Controller
         ]);
 
         // Sukurti irasa
-        $automobiliai = new Auto;
-        $automobiliai->pavadinimas = $request->input('pavadinimas');
-        $automobiliai->tekstas = $request->input('tekstas');
-        $automobiliai->save();
+        $knygos = new knygos;
+        $knygos->pavadinimas = $request->input('pavadinimas');
+        $knygos->tekstas = $request->input('tekstas');
+        $knygos->save();
 
-        return redirect('/automobiliai')->with('success', 'Tema sekmingai sukurta');
+        return redirect('/knygos')->with('success', 'Tema sekmingai sukurta');
     }
 
     /**
@@ -66,8 +66,8 @@ class AutomobiliaiController extends Controller
      */
     public function show($id)
     {
-        $automobiliai = Auto::find($id);
-        return view('temos.automobiliai.show')->with('automobiliai', $automobiliai);
+        $knygos = knygos::find($id);
+        return view('temos.knygos.show')->with('knygos', $knygos);
     }
 
     /**
@@ -78,8 +78,8 @@ class AutomobiliaiController extends Controller
      */
     public function edit($id)
     {
-        $automobiliai = Auto::find($id);
-        return view('temos.automobiliai.edit')->with('automobiliai', $automobiliai);
+        $knygos = knygos::find($id);
+        return view('temos.knygos.edit')->with('knygos', $knygos);
     }
 
     /**
@@ -97,12 +97,12 @@ class AutomobiliaiController extends Controller
         ]);
 
         // Sukurti irasa
-        $automobiliai = Auto::find($id);
-        $automobiliai->pavadinimas = $request->input('pavadinimas');
-        $automobiliai->tekstas = $request->input('tekstas');
-        $automobiliai->save();
+        $knygos = knygos::find($id);
+        $knygos->pavadinimas = $request->input('pavadinimas');
+        $knygos->tekstas = $request->input('tekstas');
+        $knygos->save();
 
-        return redirect('/automobiliai')->with('success', 'Įrašas sėkmingai redaguotas');
+        return redirect('/knygos')->with('success', 'Įrašas sėkmingai redaguotas');
     }
 
     /**
@@ -113,9 +113,9 @@ class AutomobiliaiController extends Controller
      */
     public function destroy($id)
     {
-        $automobiliai = Auto::find($id);
-        $automobiliai->delete();
+        $knygos = knygos::find($id);
+        $knygos->delete();
 
-        return redirect('/automobiliai')->with('success', 'Tema ištrinta');
+        return redirect('/knygos')->with('success', 'Tema ištrinta');
     }
 }

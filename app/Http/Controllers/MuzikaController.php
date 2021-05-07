@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Auto;
+use App\Models\Muzika;
 use Illuminate\Http\Request;
 
-class AutomobiliaiController extends Controller
+class MuzikaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,13 @@ class AutomobiliaiController extends Controller
      */
     public function index()
     {
-        $automobiliai = Auto::all();
+        $muzika = Muzika::all();
         //$return Post::where('title', 'Post Two')->get();
         //$posts = Post::orderBy('title', 'desc')->take(1)->get();
         //$posts = Post::orderBy('title', 'desc')->get();
 
-        //$posts = Auto::orderBy('created_at', 'asc')->paginate(10);
-        return view('temos.automobiliai.index')->with('automobiliai', $automobiliai);
+        //$posts = Muzika::orderBy('created_at', 'asc')->paginate(10);
+        return view('temos.muzika.index')->with('muzika', $muzika);
 
         //  $posts = DB::select('select * from posts');
     }
@@ -32,8 +32,8 @@ class AutomobiliaiController extends Controller
      */
     public function create()
     {
-        return view('temos.automobiliai.pcreate');
-        //return redirect()->action([AutomobiliaiController::class, 'index']);
+        return view('temos.muzika.pcreate');
+        //return redirect()->action([MuzikamobiliaiController::class, 'index']);
     }
 
     /**
@@ -50,12 +50,12 @@ class AutomobiliaiController extends Controller
         ]);
 
         // Sukurti irasa
-        $automobiliai = new Auto;
-        $automobiliai->pavadinimas = $request->input('pavadinimas');
-        $automobiliai->tekstas = $request->input('tekstas');
-        $automobiliai->save();
+        $muzika = new Muzika;
+        $muzika->pavadinimas = $request->input('pavadinimas');
+        $muzika->tekstas = $request->input('tekstas');
+        $muzika->save();
 
-        return redirect('/automobiliai')->with('success', 'Tema sekmingai sukurta');
+        return redirect('/muzika')->with('success', 'Tema sekmingai sukurta');
     }
 
     /**
@@ -66,8 +66,8 @@ class AutomobiliaiController extends Controller
      */
     public function show($id)
     {
-        $automobiliai = Auto::find($id);
-        return view('temos.automobiliai.show')->with('automobiliai', $automobiliai);
+        $muzika = Muzika::find($id);
+        return view('temos.muzika.show')->with('muzika', $muzika);
     }
 
     /**
@@ -78,8 +78,8 @@ class AutomobiliaiController extends Controller
      */
     public function edit($id)
     {
-        $automobiliai = Auto::find($id);
-        return view('temos.automobiliai.edit')->with('automobiliai', $automobiliai);
+        $muzika = Muzika::find($id);
+        return view('temos.muzika.edit')->with('muzika', $muzika);
     }
 
     /**
@@ -97,12 +97,12 @@ class AutomobiliaiController extends Controller
         ]);
 
         // Sukurti irasa
-        $automobiliai = Auto::find($id);
-        $automobiliai->pavadinimas = $request->input('pavadinimas');
-        $automobiliai->tekstas = $request->input('tekstas');
-        $automobiliai->save();
+        $muzika = Muzika::find($id);
+        $muzika->pavadinimas = $request->input('pavadinimas');
+        $muzika->tekstas = $request->input('tekstas');
+        $muzika->save();
 
-        return redirect('/automobiliai')->with('success', 'Įrašas sėkmingai redaguotas');
+        return redirect('/muzika')->with('success', 'Įrašas sėkmingai redaguotas');
     }
 
     /**
@@ -113,9 +113,9 @@ class AutomobiliaiController extends Controller
      */
     public function destroy($id)
     {
-        $automobiliai = Auto::find($id);
-        $automobiliai->delete();
+        $muzika = Muzika::find($id);
+        $muzika->delete();
 
-        return redirect('/automobiliai')->with('success', 'Tema ištrinta');
+        return redirect('/muzika')->with('success', 'Tema ištrinta');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePotemesTable extends Migration
+class CreateMuzikaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreatePotemesTable extends Migration
      */
     public function up()
     {
-        Schema::create('potemes', function (Blueprint $table) {
+        Schema::create('muzika', function (Blueprint $table) {
             $table->id();
+            $table->string('pavadinimas');
+            $table->longText('tekstas');
+            $table->string('nuotrauka')->nullable();
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreatePotemesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('potemes');
+        Schema::dropIfExists('muzika');
     }
 }

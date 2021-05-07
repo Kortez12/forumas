@@ -83,3 +83,11 @@
   display: flex;
   position: relative;
 }
+
+.fright {
+  float:right;
+}
+
+.fleft {
+  float:left;
+}
