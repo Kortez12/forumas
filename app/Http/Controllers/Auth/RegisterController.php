@@ -53,13 +53,14 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            // 'city_id' => ['required'],
             'password' => [
                 'required', 'string', 'min:8', 'confirmed',
                 //'regex:/[A-Z]/',
                 'regex:/[a-z]/',
-                'regex:/[0-9]/'
+                // 'regex:/[0-9]/'
             ],
-            'city_id' => ['required'],
+
         ]);
     }
 
@@ -75,14 +76,13 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            //'city_id' => $data['city_id'],
+            'city_id' => $data['city_id'] ?? null,
         ]);
     }
 
     public function showRegistrationForm()
     {
         $cities = City::all();
-
         return view('auth.register', compact('cities'));
     }
 }

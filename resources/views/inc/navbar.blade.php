@@ -13,21 +13,6 @@
 
                 </ul>
 
-                <ul class="navbar-nav mr-auto ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link " href="{{ url('/') }}">Pagrindinis</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/miestai') }}">Miestai</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/apie') }}">Apie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/kazkas') }}">Kažkas</a>
-                    </li>
-                </ul>
-<h2></h2>
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->

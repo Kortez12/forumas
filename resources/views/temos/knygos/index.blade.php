@@ -15,12 +15,13 @@
            <ul class="list-group">
             <li class="list-group-item mt-2 rounded-1rem">
                 <h4><a href="{{ url("knygos/$knyga->id") }}">{{ $knyga->pavadinimas }}</a></h4>
-                <div><a href="{{ url('/') }}">Laikas</a><br><hr class="p-0 m-1 w-25">
-                    <small>Tema sukurta {{ $knyga->created_at }}</small>
-                </div>
+                    <small>Tema sukurta {{ $knyga->created_at->diffForHumans() }}</small>
+                
             </li> 
               </ul>
         @endforeach
+</div>
+        {!!$knygos->links()!!}
         @else
         <h2>Jokių temų dar nėra sukurtą</h2>
     @endif

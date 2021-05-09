@@ -23,4 +23,5 @@
         <a class="btn btn-primary" href="{{ url('/muzika') }}">Atgal</a>
    </div>
 </div>
+@include('inc.ckeditor')
 @endsection

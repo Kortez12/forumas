@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Knygos;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class KnygosController extends Controller
 {
@@ -12,9 +13,16 @@ class KnygosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('verified', ['auth', ['except' => ['index', 'show']]]);
+    }
+
     public function index()
     {
-        $knygos = knygos::all();
+        Paginator::useBootstrap();
+        $knygos = knygos::orderBy('id', 'desc')->paginate(5);
         //$return Post::where('title', 'Post Two')->get();
         //$posts = Post::orderBy('title', 'desc')->take(1)->get();
         //$posts = Post::orderBy('title', 'desc')->get();
@@ -53,6 +61,7 @@ class KnygosController extends Controller
         $knygos = new knygos;
         $knygos->pavadinimas = $request->input('pavadinimas');
         $knygos->tekstas = $request->input('tekstas');
+        $knygos->user_id = auth()->user()->id;
         $knygos->save();
 
         return redirect('/knygos')->with('success', 'Tema sekmingai sukurta');
@@ -79,6 +88,10 @@ class KnygosController extends Controller
     public function edit($id)
     {
         $knygos = knygos::find($id);
+        // Patikrinimas kad teisingas useris
+        if (auth()->user()->id !== $knygos->user_id) {
+            return redirect('/knygos')->with('error', 'Negalima redaguoti ne savo įrašą!');
+        }
         return view('temos.knygos.edit')->with('knygos', $knygos);
     }
 
@@ -115,7 +128,9 @@ class KnygosController extends Controller
     {
         $knygos = knygos::find($id);
         $knygos->delete();
-
-        return redirect('/knygos')->with('success', 'Tema ištrinta');
+        if (auth()->user()->id !== $knygos->user_id) {
+            return redirect('/knygos')->with('error', 'Negalima trinti ne savo įrašą!');
+        }
+        return redirect('/home')->with('success', 'Tema ištrinta');
     }
 }

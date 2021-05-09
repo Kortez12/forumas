@@ -10,9 +10,9 @@ class Laisvalaikis extends Model
     use HasFactory;
 
     protected $table = 'laisvalaikis';
-    protected $fillable = [
-        'pavadinimas',
-        'tekstas',
-        'nuotrauka'
-    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

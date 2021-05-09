@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+@if (!auth::guest())
 <div class="container py-4">
 
     <div class="alert-dark p-2 rounded-1rem bg-grand text-white">
@@ -23,4 +23,6 @@
         <a class="btn btn-primary" href="{{ url('/automobiliai') }}">Atgal</a>
    </div>
 </div>
+@endif
+@include('inc.ckeditor')
 @endsection

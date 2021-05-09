@@ -20,7 +20,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
-        'country_id',
+        'city_id',
     ];
 
     /**
@@ -45,5 +45,23 @@ class User extends Authenticatable implements MustVerifyEmail
     public function city()
     {
         return $this->belongsTo(City::class);
+    }
+
+    public function masina()
+    {
+        return $this->hasMany(Auto::class);
+    }
+
+    public function knygos()
+    {
+        return $this->hasMany(Knygos::class);
+    }
+    public function laisvalaikis()
+    {
+        return $this->hasMany(Laisvalaikis::class);
+    }
+    public function muzika()
+    {
+        return $this->hasMany(Muzika::class);
     }
 }

@@ -4,7 +4,11 @@ use App\Http\Controllers\AutomobiliaiController;
 use App\Http\Controllers\KnygosController;
 use App\Http\Controllers\LaisvalaikisController;
 use App\Http\Controllers\MuzikaController;
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
+use App\Models\Auto;
+use PhpParser\Node\Stmt\Echo_;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +24,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/miestai', [App\Http\Controllers\CitiesController::class, 'index']);
-Route::get('/carousel', [App\Http\Controllers\CarouselController::class, 'carousel']);
 
 Route::resources(['automobiliai' => AutomobiliaiController::class]);
 Route::resources(['knygos' => KnygosController::class]);
@@ -34,4 +36,4 @@ Route::get('/email/verify', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//->middleware('verified');

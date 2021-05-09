@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Laisvalaikis;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class LaisvalaikisController extends Controller
 {
@@ -12,9 +13,16 @@ class LaisvalaikisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('verified', ['auth', ['except' => ['index', 'show']]]);
+    }
+
     public function index()
     {
-        $laisvalaikis = Laisvalaikis::all();
+        Paginator::useBootstrap();
+        $laisvalaikis = Laisvalaikis::orderBy('id', 'desc')->paginate(5);
         //$return Post::where('title', 'Post Two')->get();
         //$posts = Post::orderBy('title', 'desc')->take(1)->get();
         //$posts = Post::orderBy('title', 'desc')->get();
@@ -53,6 +61,7 @@ class LaisvalaikisController extends Controller
         $laisvalaikis = new Laisvalaikis;
         $laisvalaikis->pavadinimas = $request->input('pavadinimas');
         $laisvalaikis->tekstas = $request->input('tekstas');
+        $laisvalaikis->user_id = auth()->user()->id;
         $laisvalaikis->save();
 
         return redirect('/laisvalaikis')->with('success', 'Tema sekmingai sukurta');
@@ -79,6 +88,10 @@ class LaisvalaikisController extends Controller
     public function edit($id)
     {
         $laisvalaikis = Laisvalaikis::find($id);
+        // Patikrinimas kad teisingas useris
+        if (auth()->user()->id !== $laisvalaikis->user_id) {
+            return redirect('/laisvalaikis')->with('error', 'Negalima redaguoti ne savo įrašą!');
+        }
         return view('temos.laisvalaikis.edit')->with('laisvalaikis', $laisvalaikis);
     }
 
@@ -115,7 +128,9 @@ class LaisvalaikisController extends Controller
     {
         $laisvalaikis = Laisvalaikis::find($id);
         $laisvalaikis->delete();
-
-        return redirect('/laisvalaikis')->with('success', 'Tema ištrinta');
+        if (auth()->user()->id !== $laisvalaikis->user_id) {
+            return redirect('/laisvalaikis')->with('error', 'Negalima trinti ne savo įrašą!');
+        }
+        return redirect('/home')->with('success', 'Tema ištrinta');
     }
 }

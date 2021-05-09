@@ -10,9 +10,9 @@ class Auto extends Model
     use HasFactory;
 
     protected $table = 'automobiliai';
-    protected $fillable = [
-        'pavadinimas',
-        'tekstas',
-        'nuotrauka'
-    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

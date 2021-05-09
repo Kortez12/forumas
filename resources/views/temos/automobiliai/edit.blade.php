@@ -24,4 +24,5 @@
         <a class="btn btn-primary" href="{{ url('/automobiliai') }}">Atgal</a>
    </div>
 </div>
+@include('inc.ckeditor')
 @endsection

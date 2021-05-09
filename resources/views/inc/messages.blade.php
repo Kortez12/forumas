@@ -1,5 +1,3 @@
-{{-- 
-
 @if (count($errors) > 0)
 <div class="container py-2 col-6">
     @foreach ($errors->all() as $error)
@@ -25,5 +23,3 @@
     </div>
 
 @endif
-
- --}}

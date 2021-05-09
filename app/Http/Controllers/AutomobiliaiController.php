@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Auto;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class AutomobiliaiController extends Controller
 {
@@ -12,9 +13,18 @@ class AutomobiliaiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+
+        $this->middleware('verified', ['auth', ['except' => ['index', 'show']]]);
+    }
+
     public function index()
     {
-        $automobiliai = Auto::all();
+        Paginator::useBootstrap();
+        $automobiliai = Auto::orderBy('id', 'desc')->paginate(5);
+
         //$return Post::where('title', 'Post Two')->get();
         //$posts = Post::orderBy('title', 'desc')->take(1)->get();
         //$posts = Post::orderBy('title', 'desc')->get();
@@ -53,6 +63,7 @@ class AutomobiliaiController extends Controller
         $automobiliai = new Auto;
         $automobiliai->pavadinimas = $request->input('pavadinimas');
         $automobiliai->tekstas = $request->input('tekstas');
+        $automobiliai->user_id = auth()->user()->id;
         $automobiliai->save();
 
         return redirect('/automobiliai')->with('success', 'Tema sekmingai sukurta');
@@ -79,6 +90,11 @@ class AutomobiliaiController extends Controller
     public function edit($id)
     {
         $automobiliai = Auto::find($id);
+
+        // Patikrinimas kad teisingas useris
+        if (auth()->user()->id !== $automobiliai->user_id) {
+            return redirect('/automobiliai')->with('error', 'Negalima redaguoti ne savo įrašą!');
+        }
         return view('temos.automobiliai.edit')->with('automobiliai', $automobiliai);
     }
 
@@ -115,7 +131,9 @@ class AutomobiliaiController extends Controller
     {
         $automobiliai = Auto::find($id);
         $automobiliai->delete();
-
-        return redirect('/automobiliai')->with('success', 'Tema ištrinta');
+        if (auth()->user()->id !== $automobiliai->user_id) {
+            return redirect('/automobiliai')->with('error', 'Negalima trinti ne savo įrašą!');
+        }
+        return redirect('/home')->with('success', 'Tema ištrinta');
     }
 }

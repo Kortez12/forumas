@@ -1,3 +1,5 @@
+@if (auth::guest())
+
 <div class="container">
     <div>
           {!! Form::open(['action' => 'App\Http\Controllers\AutomobiliaiController@store', 'method' => 'POST']) !!}
@@ -8,3 +10,4 @@
           {!! Form::close() !!} 
     </div>
  </div>
+ @endif

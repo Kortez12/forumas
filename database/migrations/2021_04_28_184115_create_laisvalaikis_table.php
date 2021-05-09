@@ -18,7 +18,7 @@ class CreateLaisvalaikisTable extends Migration
             $table->string('pavadinimas');
             $table->longText('tekstas');
             $table->string('nuotrauka')->nullable();
-            $table->integer('user_id')->nullable();
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

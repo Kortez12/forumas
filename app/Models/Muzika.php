@@ -9,9 +9,9 @@ class Muzika extends Model
 {
     use HasFactory;
     protected $table = 'muzika';
-    protected $fillable = [
-        'pavadinimas',
-        'tekstas',
-        'nuotrauka'
-    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

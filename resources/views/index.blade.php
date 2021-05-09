@@ -17,15 +17,15 @@
             </li>
             <li class="list-group-item mt-2 rounded-1rem">
                 <h4><a href="{{ url('/knygos') }}">Knygos</a></h4>
-                <div><p class="p-0 m-0">Viskas apie automobilius</p></div>
+                <div><p class="p-0 m-0">Viskas apie knygas</p></div>
             </li>
             <li class="list-group-item mt-2 rounded-1rem">
                 <h4><a href="{{ url('/laisvalaikis') }}">Laisvalaikis</a></h4>
-                <div><p class="p-0 m-0">Viskas apie automobilius</p></div>
+                <div><p class="p-0 m-0">Viskas apie laisvalaikį</p></div>
             </li>
             <li class="list-group-item mt-2 rounded-1rem">
                 <h4><a href="{{ url('/muzika') }}">Muzika</a></h4>
-                <div><p class="p-0 m-0">Viskas apie automobilius</p></div>
+                <div><p class="p-0 m-0">Viskas apie muziką</p></div>
             </li>
         </ul>
         </div>
